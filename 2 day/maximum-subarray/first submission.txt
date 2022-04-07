@@ -1,0 +1,24 @@
+class Solution {
+    // get a largest value in the array
+    public static int largestValue(int[] nums) {
+        int value = Integer.MIN_VALUE;
+        
+        for (int i = 0; i < nums.length; i++){
+            if(value < nums[i]) value = nums[i];
+        }
+        return value;
+    }
+    
+    public static int maxSubArray(int[] nums) {
+        int sum = 0, largestSum = 0, value = largestValue(nums);
+        
+        for (int i = 0; i < nums.length; i++){
+            sum = sum + nums[i];
+            
+            if(sum < 0) sum = 0;  
+            if(sum >= largestSum) largestSum = value;
+            if(sum > largestSum && sum != 0) largestSum = sum;
+        }
+        return largestSum;
+    }
+}

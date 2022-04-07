@@ -1,0 +1,16 @@
+class Solution {
+    public int[] intersection(int[] nums1, int[] nums2) {
+        HashSet<Integer> fSet = new HashSet<Integer>();
+        for(Integer value : nums1) fSet.add(value);
+        HashSet<Integer> sSet = new HashSet<Integer>();
+        for(Integer value : nums2) sSet.add(value);
+        
+        fSet.retainAll(sSet);
+        
+        int i = 0;
+        int[] intersectionArray = new int[fSet.size()];
+        for(int value : fSet) intersectionArray[i++] = value;
+        
+        return intersectionArray;
+    }
+}

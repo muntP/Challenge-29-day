@@ -1,0 +1,25 @@
+class Solution {
+    public static boolean isFound(int [] array, int value){
+        for (int i = 0; i < array.length; i++){
+            if(array[i] == value) return true;
+        } 
+        return false;
+    }
+    
+    public static int[] intersection(int[] nums1, int[] nums2) {
+        ArrayList<Integer> intersectionList = new ArrayList<Integer>(nums1.length);
+        
+        for (int i = 0; i < nums1.length; i++){
+            if(isFound(nums2, nums1[i]) && ! intersectionList.contains(nums1[i])){
+                intersectionList.add(nums1[i]); 
+            }
+        }
+        
+        int[] intersectionArray = new int[intersectionList.size()];
+        for (int i = 0; i < intersectionList.size(); i++){
+            intersectionArray[i] = intersectionList.get(i);
+        }
+        
+        return intersectionArray;
+    }
+}

@@ -1,0 +1,18 @@
+public static int[] intersection(int[] nums1, int[] nums2) {
+        Integer[] fNumbers = Arrays.stream( nums1 ).boxed().toArray( Integer[]::new );
+        Integer[] sNumbers = Arrays.stream( nums2 ).boxed().toArray( Integer[]::new );
+        
+        HashSet<Integer> fSet = new HashSet<Integer>(Arrays.asList(fNumbers));
+        HashSet<Integer> sSet = new HashSet<Integer>(Arrays.asList(sNumbers));
+        
+        HashSet<Integer> intersectionSet = new HashSet<Integer>(fSet);    
+        intersectionSet.retainAll(sSet);
+        
+        int i = 0;
+        int[] intersectionArray = new int [intersectionSet.size()];
+        for (int value : intersectionSet){
+            intersectionArray[i++] = value;
+        }
+        
+        return intersectionArray;
+    }

@@ -1,0 +1,19 @@
+class Solution {
+    public boolean isSubsequence(String s, String t) {
+        if(s.length() == 0) return true;
+        if(t.length() == 0) return false;
+        
+        // copy every char from s & t to arrays
+        String[] fArray = s.split("");
+        String[] sArray = t.split("");
+        
+        // declaration about set
+        Set<String> unionOfArrays = new HashSet<>();
+        // add all characters from fArray and get intersection
+		unionOfArrays.addAll(Arrays.asList(fArray));
+		unionOfArrays.retainAll(Arrays.asList(sArray));
+		
+		if(unionOfArrays.size() == s.length()) return true;
+        return false;
+    }
+}

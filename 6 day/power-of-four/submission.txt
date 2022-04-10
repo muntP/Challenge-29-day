@@ -1,0 +1,12 @@
+class Solution {
+    public static boolean isPowerOfFour(int n) {
+        if(n == 1 || n == 4) return true;
+        if(n < 4) return false;
+        
+        double number = n;
+        while(number != 4 && number > 4 && number % 2 == 0){
+            number = number / 4;
+        }
+        return number == 4.0 ? true : false;
+    }
+}

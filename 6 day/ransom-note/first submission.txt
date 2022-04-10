@@ -1,0 +1,16 @@
+class Solution {
+    public static boolean canConstruct(String ransomNote, String magazine) {
+        if(ransomNote.length() > magazine.length()) return false;
+        
+        char[] noteChar = ransomNote.toCharArray();
+        char[] magazineChar = magazine.toCharArray();
+        Arrays.sort(noteChar); Arrays.sort(magazineChar);
+        
+        int j = 0;
+        for (int i = 0; i < magazineChar.length; i++){
+            if(magazineChar[i] == noteChar[j]) j++;
+            if(j == ransomNote.length()) return true;
+        } 
+        return false;
+    }
+}

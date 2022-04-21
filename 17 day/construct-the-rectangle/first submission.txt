@@ -1,0 +1,17 @@
+class Solution {
+    public int[] constructRectangle(int area) {
+        int[] array = new int[2];
+        int i = (int)Math.sqrt(area);
+        
+        while(true){
+            double result = (double)area  i;
+            if(result == (int)result){
+                array[0] = Math.max(i, (int)result);
+                array[1] = Math.min(i, (int)result);
+                break;
+            }
+            i--;
+        }
+        return array;
+    }
+}

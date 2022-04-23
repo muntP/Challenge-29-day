@@ -1,0 +1,19 @@
+class Solution {
+    public static String convertToBase7(int num) {
+        if(num == 0) return "0";
+        
+        int number = num;
+        if(num < 0) number = Math.abs(number);
+        
+        StringBuilder result = new StringBuilder();
+        
+        while(number != 0){
+            int remainder = number % 7;
+            result.append(remainder);
+            number /= 7;
+        }
+        
+        result.reverse();
+        return num < 0 ? new String("-" + result) : new String(result);
+    }
+}

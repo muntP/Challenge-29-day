@@ -1,0 +1,17 @@
+class Solution {
+    public List<Integer> selfDividingNumbers(int left, int right) {
+        ArrayList<Integer> output = new ArrayList<>();
+        
+        for(int i = left; i <= right; i++){
+            if(isDividingNumber(i)) output.add(i);
+        }
+        return output;
+    }
+    
+    public boolean isDividingNumber(int number){
+        for(char value : String.valueOf(number).toCharArray()){
+            if(value == '0' || number % (value - '0') > 0) return false;
+        }
+        return true;
+    }
+}
